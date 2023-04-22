@@ -1,16 +1,15 @@
-# This is a sample Python script.
+import requests
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+api_keu = "e5b2ca1fec2d4cd8968c705086d31652"
+url = "https://newsapi.org/v2/everything?q=tesla&from=2023-03-22&sortBy=publishedAt&apiKey=e5b2ca1fec2d4cd8968c705086d31652"
 
+# Make request
+request = requests.get(url)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+# get a dictionary with data
+content = request.json()
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# access the article titles and descriptions
+for article in content["articles"]:
+    print(article["title"])
+    print(article["description"])

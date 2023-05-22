@@ -3,11 +3,11 @@ from send_email import send_email
 
 topic = "tesla"
 
-api_keu = "e5b2ca1fec2d4cd8968c705086d31652"
+api_key = "YOURAPIKEYHERE"
 url = "https://newsapi.org/v2/everything?" \
       f"q={topic}&" \
       "from=2023-03-22&sortBy=publishedAt&" \
-      "apiKey=e5b2ca1fec2d4cd8968c705086d31652&language=en"
+      f"apiKey={api_key}&language=en"
 
 # Make request
 request = requests.get(url)
